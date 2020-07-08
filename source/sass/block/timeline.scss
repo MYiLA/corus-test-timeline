@@ -1,0 +1,27 @@
+.timeline {
+
+}
+
+.timeline__list {
+  display: table;
+  border-spacing: 14px 0;
+  min-width: 500px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  /* border: 1px solid rgb(128, 0, 0);
+  background-color: #8811115d; */
+}
+
+.timeline__item {
+  position: relative;
+  display: table-cell;
+
+  background-color: #4ea31e;
+}
+
+.timeline__label {
+  position: absolute;
+}
