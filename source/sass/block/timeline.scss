@@ -3,19 +3,26 @@
   line-height: 14px;
   padding-top: 30px;
   padding-bottom: 30px;
+
+  // стили когда лейбл рядом с поинтом
   &--center-point {
     position: relative;
 
     .timeline__item {
+      height: 2px;
+
       &:nth-child(1) {
         display: table-row;
-
-        &::before {
-          left: 2px;
-        }
+        background-color: transparent;
+        height: 0;
+        left: 2px;
 
         &::after {
           content: none;
+        }
+
+        &::before {
+          left: 1px;
         }
 
         .timeline__label-wrap {
@@ -26,31 +33,43 @@
         }
       }
 
+
+
+      
+
       &:nth-last-child(1) {
         .timeline__label-wrap {
           right: -58px;
           text-align: right;
         }
       }
-
-      // стили состояний
-      &--active {}
-
-      &--traversed {}
     }
-  
+
     .timeline__label-wrap {
       left: auto;
       right: -105px;
     }
+
+    // стили состояний когда лейбл рядом с поинтом
+    &--active {}
+
+    &--traversed {}
+
+    
+  
   }
 
+// стили когда лейблы выше линии и рядом с поинтом
   &--over-line {
     .timeline__label-wrap {
       top: -22px;
     }
 
-    .timeline__item {
+
+  }
+
+  &--over-line.timeline--center-point {
+        .timeline__item {
       &:nth-child(1) {
         .timeline__label-wrap {
           top: 8px;
@@ -63,7 +82,7 @@
 
 .timeline__list {
   width: 100%;
-  height: 1px;
+  height: 2px;
   margin: 0;
   padding: 0;
 
@@ -78,34 +97,35 @@
   display: table-cell;
   position: relative;
 
-  background-color: $green;
+  background-color: $gray;
 
   &::after,
   &::before {
-    width: 7px;
-    height: 7px;
+    width: 9px;
+    height: 9px;
 
     position: absolute;
     top: 50%;
     border-radius: 50%;
     transform: translateY(-50%);
 
-    background-color: $gray;
+    background-color: transparent;
+    border:2px solid $gray;
   }
 
   &::after {
     content: "";
-    right: -9px;
+    right: -10px;
   }
 
   &:nth-child(1) {
     &::before {
       content: "";
-      left: -9px;
+      left: -10px;
     }
   }
 
-// стили состояний
+// стили состояний когда лейблы по центру шага (базовые)
   &--active {
     background-color: $green;
   }
