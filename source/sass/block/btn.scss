@@ -1,0 +1,27 @@
+.btn {
+  text-align: center;
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+
+  background-color: $gray;
+  color: $dark-gray;
+  border: 2px solid transparent;
+
+  transition:
+    border-color .4s,
+    background-color .4s,
+    color .4s;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border: 2px solid $orange;
+    background-color: $white;
+    color: $black;
+  }
+
+  &:active {
+    border: 2px solid $green;
+  }
+}

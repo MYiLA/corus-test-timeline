@@ -1,0 +1,21 @@
+.header {
+  max-width: 450px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  ::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.header__btn {
+  // display: inline-block;
+  float: left;
+  width: 190px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}

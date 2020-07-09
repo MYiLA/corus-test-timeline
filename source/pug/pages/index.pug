@@ -14,13 +14,35 @@ html(lang="en")
 
       main.main
         h1.main__title Task "timeline"
+        .main__timeline.timeline.timeline--over-line.timeline--center-point
+          ol.timeline__list
+            - for (var n = 0; n < 4; n++)
+              li.timeline__item
+                .timeline__label-wrap
+                  span.timeline__label(tabindex="0") Step
+
+        .main__timeline.timeline.timeline--over-line
+          ol.timeline__list
+            - for (var n = 0; n < 4; n++)
+              li.timeline__item
+                .timeline__label-wrap
+                  span.timeline__label(tabindex="0") Step
+
+        .main__timeline.timeline.timeline--center-point
+          ol.timeline__list
+            - for (var n = 0; n < 4; n++)
+              li.timeline__item
+                .timeline__label-wrap
+                  span.timeline__label(tabindex="0") Step
+
         .main__timeline.timeline
           ol.timeline__list
             - for (var n = 0; n < 4; n++)
               li.timeline__item
-                span.timeline__label Step
+                .timeline__label-wrap
+                  span.timeline__label(tabindex="0") Step
 
-      include ../modules/footer
+    include ../modules/footer
 
     script(src="lib/jquery-v3.5.1.js")
     script(src="js/script.js" defer)

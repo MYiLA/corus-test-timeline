@@ -26,6 +26,7 @@ html, body {
   box-sizing: border-box;
   max-width: 100%;
   min-width: $mobile-width;
+  margin: 0;
   overflow-x: hidden;
 }
 
@@ -38,4 +39,5 @@ html, body {
 .wrap {
   margin-left: 15px;
   margin-right: 15px;
+  // background-color: #f59fc355;
 }
