@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Timeline</title>
+    <link rel="stylesheet" href="lib/normalize-v8.0.1.css">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="header">
+        <div class="header__wrap">
+          <button class="header__btn btn js-add" type="button">add point</button>
+          <button class="header__btn btn js-delete" type="button">delete point</button>
+          <button class="header__btn btn js-left-center" type="button">label left / center</button>
+          <button class="header__btn btn js-under-over" type="button">label under / over</button>
+        </div>
+      </header>
+      <main>
+        <div class="main">
+          <h1 class="main__title">Task 'Timeline'</h1>
+          <ol class="main__timeline timeline timeline--label-left">
+            <li class="timeline__item">
+              <div class="timeline__progress"></div><span class="timeline__label" tabindex="0">Step</span>
+            </li>
+            <li class="timeline__item">
+              <div class="timeline__progress"></div><span class="timeline__label" tabindex="0">Step</span>
+            </li>
+            <li class="timeline__item">
+              <div class="timeline__progress"></div><span class="timeline__label" tabindex="0">Step</span>
+            </li>
+            <li class="timeline__item">
+              <div class="timeline__progress"></div><span class="timeline__label" tabindex="0">Step</span>
+            </li>
+          </ol>
+        </div>
+      </main>
+    </div>
+    <footer class="footer">
+      <div class="wrap"><a class="footer__link" href="https://spb.hh.ru/applicant/resumes/view?resume=c7c2cdd8ff076a0f5e0039ed1f6f707379314e">My hh</a><a class="footer__link" href="https://github.com/MYiLA/corus-test-timeline">My github</a></div>
+    </footer>
+    <script src="lib/jquery-v3.5.1.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
