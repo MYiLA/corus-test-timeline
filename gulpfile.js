@@ -24,7 +24,6 @@ gulp.task('clean', () => {
 gulp.task('copy', () => {
   return gulp.src([
       'source/fonts/*',
-      'source/img/**',
       'source/lib/**'
     ], {
       base: 'source'
@@ -71,7 +70,6 @@ gulp.task('server', () => {
   });
 
   gulp.watch('source/sass/**/*.{scss,sass}', gulp.series('css', 'refresh'));
-  gulp.watch('source/img/icon-*.svg', gulp.series('html', 'refresh'));
   gulp.watch('temp/*.html', gulp.series('html', 'refresh'));
   gulp.watch('source/js/*.js', gulp.series('js', 'refresh'));
   gulp.watch('source/pug/**/*.pug', gulp.series('html', 'refresh'));
