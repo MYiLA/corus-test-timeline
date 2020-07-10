@@ -1,157 +1,139 @@
 .timeline {
-  font-size: 12px;
-  line-height: 14px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-
-  // стили когда лейбл рядом с поинтом
-  &--center-point {
-    position: relative;
-
-    .timeline__item {
-      height: 2px;
-
-      &:nth-child(1) {
-        display: table-row;
-        background-color: transparent;
-        height: 0;
-        left: 2px;
-
-        &::after {
-          content: none;
-        }
-
-        &::before {
-          left: 1px;
-        }
-
-        .timeline__label-wrap {
-          left: 52px;
-          top: auto;
-          bottom: 12px;
-          text-align: left;
-        }
-      }
-
-
-
-      
-
-      &:nth-last-child(1) {
-        .timeline__label-wrap {
-          right: -58px;
-          text-align: right;
-        }
-      }
-    }
-
-    .timeline__label-wrap {
-      left: auto;
-      right: -105px;
-    }
-
-    // стили состояний когда лейбл рядом с поинтом
-    &--active {}
-
-    &--traversed {}
-
-    
-  
-  }
-
-// стили когда лейблы выше линии и рядом с поинтом
-  &--over-line {
-    .timeline__label-wrap {
-      top: -22px;
-    }
-
-
-  }
-
-  &--over-line.timeline--center-point {
-        .timeline__item {
-      &:nth-child(1) {
-        .timeline__label-wrap {
-          top: 8px;
-          bottom: auto;
-        }
-      }
-    }
-  }
-}
-
-.timeline__list {
-  width: 100%;
-  height: 2px;
   margin: 0;
-  padding: 0;
-
+  padding: 0 8px;
+  padding-bottom: 32px;
+  padding-top: 32px;
+  width: 100%;
   display: table;
-  border-spacing: 11px 0;
-  list-style: none;
+  table-layout: fixed;
+  box-sizing: border-box;
 
   counter-reset:li;
+
+  &--label-left {
+    .timeline__item {
+      &:first-child {
+        width: 0;
+
+        &::before {
+          display: none;
+        }
+
+        .timeline__label {
+          transform: none;
+          left: 0;
+        }
+      }
+
+      &:last-child {
+        .timeline__label {
+          transform: none;
+        }
+      }
+
+      &--active {
+        .timeline__progress {
+          background-color: $green;
+
+          &::before {
+            content: none;
+          }
+        }
+
+        &::after {
+          border-color: $orange;
+          background-color: $orange;
+        }
+      }
+    }
+
+    .timeline__item
+    .timeline__label {
+      left: auto;
+      right: 0;
+      transform: translateX(50%);
+    }
+  }
+
+  &--under-line {
+    .timeline__label {
+      bottom: -18px;
+    }
+  }
 }
 
 .timeline__item {
-  display: table-cell;
   position: relative;
-
-  background-color: $gray;
+  display: table-cell;
+  height: 2px;
 
   &::after,
-  &::before {
-    width: 9px;
-    height: 9px;
-
-    position: absolute;
-    top: 50%;
-    border-radius: 50%;
-    transform: translateY(-50%);
-
-    background-color: transparent;
-    border:2px solid $gray;
+  &:first-child::before {
+    content: '';
+    @include point;
   }
 
-  &::after {
-    content: "";
-    right: -10px;
+  &:first-child::before {
+    left: 0;
+    transform: translate(-50%, -50%);
   }
 
-  &:nth-child(1) {
-    &::before {
-      content: "";
-      left: -10px;
+  &--active {
+    .timeline__progress {
+      background-color: $orange;
+
+      &::before {
+        content: '';
+        right: auto;
+        left: -10px;
+        background-color: $orange;
+        border-color: $orange;
+      }
     }
   }
 
-// стили состояний когда лейблы по центру шага (базовые)
-  &--active {
-    background-color: $green;
-  }
-
   &--traversed {
-    background-color: $orange;
-  }
+    .timeline__progress {
+      background-color: $green;
+    }
 
+    &::after {
+      border-color: $green;
+      background-color: $green;
+    }
+
+    &:first-child::before {
+      border-color: $green;
+      background-color: $green;
+    }
+  }
 }
 
-.timeline__label-wrap {
-  width: 100px;
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
+.timeline__progress {
+  height: 100%;
+  margin-left: 7px;
+  margin-right: 7px;
+  background-color: $gray;
 
-  text-align: center;
-  word-wrap: break-word;
+  transition: background-color .4s;
+
+  &::before {
+    content: none;
+    @include point;
+  }
 }
 
 .timeline__label {
-  position: relative;
-  vertical-align: bottom;
-  padding-right: 0.8em;
-  color: #949494;
+  position: absolute;
+  display: block;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  font-size: 12px;
+  line-height: 12px;
+  color: $dark-gray;
 
   transition: color .4s;
   cursor: pointer;
@@ -162,14 +144,8 @@
     color: $black;
   }
 
-  &:before {
-    content:counter(li);
+  &::after {
+    content:' 'counter(li);
     counter-increment:li;
-    position:absolute;
-    bottom: -1px;
-    right: 0;
-    width:2em;
-
-    text-align: right;
   }
 }
