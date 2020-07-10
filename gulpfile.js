@@ -11,7 +11,6 @@ var del = require('del');
 var htmlmin = require('gulp-htmlmin')
 var autoprefixer = require('autoprefixer');
 var pug = require('gulp-pug');
-var htmlBeautify = require('gulp-html-beautify');
 
 gulp.task('js', () => {
   return gulp.src('source/js/**')
@@ -54,17 +53,6 @@ gulp.task('html', () => {
       pretty: true
     }))
     .pipe(htmlmin())
-    .pipe(htmlBeautify({
-      indentSize: 2,
-      unformatted: [
-        'abbr', 'area', 'b', 'bdi', 'bdo', 'br', 'cite', 'code', 'data',
-        'datalist', 'del', 'dfn', 'em', 'embed', 'i', 'ins', 'kbd',
-        'keygen', 'map', 'mark', 'math', 'meter', 'noscript', 'object',
-        'output', 'progress', 'q', 'ruby', 's', 'samp', 'small', 'strong',
-        'sub', 'sup', 'template', 'time', 'u', 'var', 'wbr', 'text',
-        'acronym', 'address', 'big', 'dt', 'ins', 'strike', 'tt', 'p'
-      ]
-    }))
     .pipe(gulp.dest('build'));
 });
 
